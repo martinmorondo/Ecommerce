@@ -1,0 +1,29 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+a {
+    cursor: pointer;
+}
+
+.modal-container {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.img-cart {
+    width: 200px;
+    padding: 1rem;
+}
+
+.paragraph {
+    font-weight: 700;
+    font-style: italic;
+}
