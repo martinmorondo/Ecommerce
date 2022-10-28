@@ -88,11 +88,26 @@ const containerCart = document.querySelector('#containerCart');
 const emptyCart = document.querySelector('#emptyCart');
 const totalPrice = document.querySelector('#totalPrice');
 const processPurchase = document.querySelector('#processPurchase');
+const activateFunction = document.querySelector('#activateFunction');
+const totalProcess = document.querySelector('#totalProcess');
+const form = document.querySelector('#process-payment');
+
+if (activateFunction) {
+activateFunction.addEventListener('click', processOrder);
+}
+
+if (form) {
+  form.addEventListener('submit', sendOrder);
+}
 
 // When the document is loaded
 document.addEventListener('DOMContentLoaded', () => {
     cart = JSON.parse(localStorage.getItem('cart')) || [];
     showCart();
+
+    if (activateFunction) {
+      document.querySelector('#activateFunction').click(processOrder);
+    } 
 })
 
 stockOfProducts.forEach((product) => {
@@ -112,7 +127,8 @@ stockOfProducts.forEach((product) => {
     ` 
 });
 
-processPurchase.addEventListener('click', () => {
+if (processPurchase) {
+  processPurchase.addEventListener('click', () => {
     if (cart.length === 0) {
         Swal.fire({
             title: "¡Your cart is empty!",
@@ -122,14 +138,18 @@ processPurchase.addEventListener('click', () => {
           });
         } else {
           location.href = "compra.html";
+          processOrder();
         }
       });
-    
+}
 
-emptyCart.addEventListener('click', () => {
+    
+if (emptyCart) {
+  emptyCart.addEventListener('click', () => {
     cart.length = [];
     showCart();
 })
+}
 
 function addProduct(id) {
     // console.log(id);
@@ -153,7 +173,8 @@ function addProduct(id) {
 const showCart = () => {
     const modalBody = document.querySelector('.modal .modal-body');
 
-    modalBody.innerHTML = '';
+    if (modalBody) {
+      modalBody.innerHTML = '';
     // console.log(modalBody);
     cart.forEach((product) => {
         const {id, name, quantity, description, price, img} = product;
@@ -171,12 +192,11 @@ const showCart = () => {
 
                 <button onclick = "deleteProduct(${id}) " class = "btn btn-danger">Delete product</button>
                 </div>
-
-
             </div>
         `
     })
-
+    }
+    
     if (cart.length === 0) {
         // console.log('There is nothing');
         modalBody.innerHTML = `
@@ -188,12 +208,12 @@ const showCart = () => {
 
     containerCart.textContent = cart.length;
 
-    totalPrice.textContent = cart.reduce((accumulator, product) => accumulator + product.quantity * product.price, 0); // The accumulator starts at zero
-    
-
-    saveStorage();
-}
-
+    if (totalPrice) {
+      totalPrice.textContent = cart.reduce((accumulator, product) => accumulator + product.quantity * product.price, 0); // The accumulator starts at zero
+  }
+      saveStorage();
+    }
+   
 function deleteProduct(id) {
     // console.log(id);
     const gameId = id;
@@ -207,5 +227,44 @@ function saveStorage() {
 }
 
 function processOrder() {
-    
+    cart.forEach((product) => {
+      const purchaseList = document.querySelector('#purchase-list tbody');
+      const {name, quantity, price, img} = product;
+
+      const row = document.createElement('tr');
+      row.innerHTML += `
+        <td>
+          <img class = "img-fluid img-cart" src = "${img}">
+        </td>
+        <td>${name}</td>
+        <td>${price}</td>
+        <td>${quantity}</td>
+        <td>${price * quantity}</td>
+      `
+      purchaseList.appendChild(row);
+    })
+
+    totalProcess.innerText = cart.reduce((accumulator, product) => accumulator + product.quantity * product.price, 0);
+}
+
+function sendOrder(event) {
+  event.preventDefault();
+  // console.log('Sending...');
+  const client = document.querySelector('#client').value;
+   const email = document.querySelector('#email').value;
+  // console.log(client);
+  // console.log(mail);
+
+  if (client === '' || email == '') {
+    Swal.fire({
+      title: "¡Debes completar tu email y nombre!",
+      text: "Rellena el formulario",
+      icon: "error",
+      confirmButtonText: "Aceptar",
+  })
+} else {
+  // console.log('You passed the validation');
+}
+
+
 }
