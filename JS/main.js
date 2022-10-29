@@ -3,7 +3,7 @@ const stockOfProducts = [
       id: 1,
       name: "eFootball 2022",
       quantity: 1,
-      description: "eFootball is an association football simulation video game developed and published by Konami.",
+      description: "eFootball is an association football simulation video game developed.",
       price: 1200,
       img: "img/pes-2023.jpg",
     },
@@ -19,7 +19,7 @@ const stockOfProducts = [
       id: 3,
       name: "Battlefield V",
       quantity: 1,
-      description: "Battlefield V is a first-person shooter game developed by DICE and published by Electronic Arts.",
+      description: "Battlefield V is a first-person shooter game developed by DICE.",
       price: 1570,
       img: "img/battlefield.jpg",
     },
@@ -27,7 +27,7 @@ const stockOfProducts = [
       id: 4,
       name: "Grand Theft Auto V",
       quantity: 1,
-      description: "Grand Theft Auto V is a 2013 action-adventure game developed by Rockstar North and published by Rockstar Games.",
+      description: "Grand Theft Auto V is a 2013 action-adventure game developed by Rockstar North.",
       price: 3000,
       img: "img/gta-v.jpg",
     },
@@ -35,15 +35,15 @@ const stockOfProducts = [
       id: 5,
       name: "God of War",
       quantity: 1,
-      description: "God of War is an action-adventure game franchise created by David Jaffe at Sony's Santa Monica Studio.",
+      description: "God of War is an action-adventure game franchise created by David Jaffe.",
       price: 1200,
       img: "img/god-of-war.jpg",
     },
     {
       id: 6,
-      name: "Uncharted 4: A Thief's End",
+      name: "Uncharted 4",
       quantity: 1,
-      description: "Uncharted 4: A Thief's End is a 2016 action-adventure game developed by Naughty Dog and published by Sony Computer Entertainment.",
+      description: "Uncharted 4: A Thief's End is a 2016 action-adventure game developed by Naughty Dog.",
       price: 1450,
       img: "img/uncharted.jpg",
     },
@@ -59,7 +59,7 @@ const stockOfProducts = [
       id: 8,
       name: "Call Of Duty Warzone",
       quantity: 1,
-      description: "Call of Duty: Warzone is a free-to-play battle royale video game released on March 10, 2020, for PlayStation 4, Xbox One, and Microsoft Windows.",
+      description: "Call of Duty: Warzone is a free-to-play battle royale video game released on March 10, 2020.",
       price: 1660,
       img: "img/callduty.jpg",
     },
@@ -67,7 +67,7 @@ const stockOfProducts = [
       id: 9,
       name: "Apex Legends",
       quantity: 1,
-      description: "Apex Legends is a free-to-play battle royale-hero shooter game developed by Respawn Entertainment and published by Electronic Arts.",
+      description: "Apex Legends is a free-to-play battle royale-hero shooter game.",
       price: 1400,
       img: "img/apex.jpg",
     },
@@ -75,7 +75,7 @@ const stockOfProducts = [
       id: 10,
       name: "Minecraft",
       quantity: 1,
-      description: "Minecraft is a sandbox video game developed by Mojang Studios. The game was created by Markus 'Notch' Persson in the Java programming language.",
+      description: "Minecraft is a sandbox video game developed by Mojang Studios.",
       price: 800,
       img: "img/minecraft.jpg",
     },
@@ -83,7 +83,7 @@ const stockOfProducts = [
       id: 11,
       name: "Gran Turismo 7",
       quantity: 1,
-      description: "Gran Turismo 7 is a 2022 sim racing video game developed by Polyphony Digital and published by Sony Interactive Entertainment.",
+      description: "Gran Turismo 7 is a 2022 sim racing video game developed by Polyphony Digital.",
       price: 800,
       img: "img/gran-turismo.jpg",
     },
@@ -91,7 +91,7 @@ const stockOfProducts = [
       id: 12,
       name: "Elder Ring",
       quantity: 1,
-      description: "Elden Ring is a 2022 action role-playing game developed by FromSoftware and published by Bandai Namco Entertainment.",
+      description: "Elden Ring is a 2022 action role-playing game developed by FromSoftware.",
       price: 2000,
       img: "img/elder-ring.jpeg",
     },
@@ -205,9 +205,8 @@ const showCart = () => {
 
                 <div>
                 <p>Product: ${name}</p>
-                <p>Product: ${price}</p>
-                <p>Product: ${quantity}</p>
-                <p>Product: ${name}</p>
+                <p>Price: ${price}</p>
+                <p>Quantity ${quantity}</p>
 
                 <button onclick = "deleteProduct(${id}) " class = "btn btn-danger">Delete product</button>
                 </div>
@@ -285,10 +284,10 @@ function sendOrder(event) {
 
   if (name === '' || email == '') {
     Swal.fire({
-      title: "¡Debes completar tu email y nombre!",
-      text: "Rellena el formulario",
+      title: "¡You must fill in your email and name!",
+      text: "Fill in the form",
       icon: "error",
-      confirmButtonText: "Aceptar",
+      confirmButtonText: "Accept",
   })
 } else {
   // console.log('You passed the validation');

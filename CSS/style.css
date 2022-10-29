@@ -6,26 +6,24 @@
 
 body {
     overflow-x: hidden;
-    background: linear-gradient(to bottom, rgb(224, 97, 97), #444, #fff);
+    background: radial-gradient(circle at 50% -20.71%, #ebe9ea 0, #ddbcd7 12.5%, #f8e6f6 25%, #d57ae1 37.5%, #c47be8 50%, #8c3df9 62.5%, #756cd7 75%, #7685af 87.5%, #6f88c1 100%);
 }
 
 .row .card {
-    background-color: #fff;
-    color: black;
+    margin: 0 auto;
+    background-color: rgb(0, 0, 0);
+    color: #fff;
     text-align: center;
 }
 
 .row .card h5 {
     font-weight: bold;
 }
-/* 
-.row .card img:hover {
-    transform: scaleX(20px);
-} */
 
 .btn-cart {
-    position: relative;
-    top: 10px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
 }
 
 a {
@@ -33,9 +31,15 @@ a {
 }
 
 .modal-container {
+    color: #fff;
+    background-color: black;
     display: flex;
     align-items: center;
-    gap: 2rem;
+    gap: 1rem;
+    border: 1px solid rgb(186, 129, 129);
+    text-align: center;
+    margin: 20px;
+    padding: 5px;
 }
 
 .img-cart {
@@ -55,3 +59,6 @@ a {
 .alert {
     font-weight: 900;
 }
+
+
+  

@@ -48,31 +48,33 @@
         <div class="container">
             <div class="row mt-3">
                 <div class="col">
-                    <h2 class="d-flex justify-content-center mb-3">Realizar Compra</h2>
+                    <h2 class="d-flex justify-content-center mb-3">Make purchase</h2>
                     <form id="process-payment" method="POST">
                         <div class="form-group row">
-                            <label for="name" class="col-12 col-md-2 col-form-label h2">Client :</label>
-                            <div class="col-12 col-md-10">
-                                <input type="text" class="form-control" id="name"
-                                    placeholder="Ingresa nombre cliente" name="name">
-                            </div>
+                            <label for="name" class="col-12 col-md-2 col-form-label h2">Name</label>
+                            <input type="text" class="form-control text-bg-light" id="name"
+                                    placeholder="Enter your name" name="name">
+                            <!-- <div class="col-12 col-md-10">
+                                
+                            </div> -->
                         </div>
-                        <div class="form-group row">
-                            <label for="email" class="col-12 col-md-2 col-form-label h2">Correo :</label>
-                            <div class="col-12 col-md-10">
-                            <input type="text"  id="email" class="form-control"  name="email.id" id="email.id">
-                            </div>
+                        <div class="form-group row mt-4">
+                            <label for="email" class="col-12 col-md-2 col-form-label h2">Email</label>
+                            <input type="text"  id="email" class="form-control"  name="email.id" id="email.id" placeholder="Enter your email address">
+                            <!-- <div class="col-12 col-md-10">
+                            
+                            </div> -->
                         </div>
 
                         <div id="carrito" class="form-group table-responsive">
-                            <table class="table" id="purchase-list">
+                            <table class="table mt-5 fw-bold" id="purchase-list">
                                 <thead>
                                     <tr>
                                         <th scope="col">Image</th>
                                         <th scope="col">Name</th>
                                         <th scope="col">Price</th>
                                         <th scope="col">Quantity</th>
-                                        <th scope="col">Subtotal</th>
+                                        <th scope="col">Sub total</th>
                                     </tr>
 
                                 </thead>
@@ -80,7 +82,7 @@
 
                                 </tbody>
                                 <tr>
-                                    <th colspan="4" scope="col" class="text-right">TOTAL
+                                    <th colspan="4" scope="col" class="text-end">TOTAL
                                         <p id="totalProcess"></p>
                                     </th>
                                     <!-- <th scope="col"></th> -->
@@ -98,12 +100,12 @@
                             </div>
                         </div>
 
-                        <div class="row justify-content-between">
+                        <div class="row justify-content-end ">
                             <div class="col-md-4 mb-2">
-                                <a href="index.html" class="btn btn-info btn-block">Seguir comprando</a>
+                                <a href="index.html" class="btn btn-info btn-block">Continue with the purchase</a>
                             </div>
                             <div class="col-xs-12 col-md-4">
-                                 <input type="submit" class="btn btn-success btn-block" id="button" value="Finalizar compra" >
+                                 <input type="submit" class="btn btn-success btn-block" id="button" value="Finalize purchase">
                             </div>
                         </div>
                     </form>
