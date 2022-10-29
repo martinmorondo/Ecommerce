@@ -6,6 +6,26 @@
 
 body {
     overflow-x: hidden;
+    background: linear-gradient(to bottom, rgb(224, 97, 97), #444, #fff);
+}
+
+.row .card {
+    background-color: #fff;
+    color: black;
+    text-align: center;
+}
+
+.row .card h5 {
+    font-weight: bold;
+}
+/* 
+.row .card img:hover {
+    transform: scaleX(20px);
+} */
+
+.btn-cart {
+    position: relative;
+    top: 10px;
 }
 
 a {
@@ -26,4 +46,12 @@ a {
 .paragraph {
     font-weight: 700;
     font-style: italic;
+}
+
+#activateFunction {
+    opacity: 0;
+}
+
+.alert {
+    font-weight: 900;
 }
