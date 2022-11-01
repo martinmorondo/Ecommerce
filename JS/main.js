@@ -3,7 +3,7 @@ const stockOfProducts = [
       id: 1,
       name: "eFootball 2022",
       quantity: 1,
-      description: "eFootball is an association football simulation video game developed.",
+      description: "eFootball is an association football simulation video game developed by Konami.",
       price: 1200,
       img: "img/pes-2023.jpg",
     },
@@ -154,20 +154,19 @@ stockOfProducts.forEach((product) => {
     // console.log(name);
     if (container) {
     container.innerHTML +=  `  
-    <div class="card  mt-3" style="width: 18rem;">
+    <div class="card mt-3" style="width: 18rem;">
     <img class="card-img-top mt-2" src="${img}" alt="Card image cap">
     <div class="card-body">
       <h5 class="card-title">${name}</h5>
       <p class="card-text">Price: ${price}</p>
       <p class="card-text">${description}</p>
       <p class="card-text">Quantity: ${quantity}</p>
-      <button onclick = "addProduct(${id})" class="btn btn-primary btn-cart">Add to cart</button>
+      <button onclick = "addProduct(${id})" class="btn btn-secondary btn-cart fw-bold">Add to cart</button>
     </div>
   </div>
     ` 
     }
 });
-
 
 const addProduct = (id) => {
     // console.log(id);
@@ -194,7 +193,6 @@ const showCart = () => {
 
     if (modalBody) {
       modalBody.innerHTML = '';
-    // console.log(modalBody);
     cart.forEach((product) => {
         const {id, name, quantity, price, img} = product;
         modalBody.innerHTML += `
@@ -208,7 +206,7 @@ const showCart = () => {
                 <p>Price: ${price}</p>
                 <p>Quantity ${quantity}</p>
 
-                <button onclick = "deleteProduct(${id}) " class = "btn btn-danger">Delete product</button>
+                <button onclick = "deleteProduct(${id}) " class = "btn btn-danger fw-bold">Delete product</button>
                 </div>
             </div>
         `;
@@ -220,17 +218,16 @@ const showCart = () => {
     if (amountCart === 0) {
         // console.log('There is nothing');
         modalBody.innerHTML = `
-            <p class = "text-primary text-center paragraph">You haven't added anything yet!</p>
+            <p class = "text-primary text-center paragraph fs-2">You haven't added anything yet!</p>
         `;
     } else {
-        console.log('Something');
+        // console.log('Something');
     }
 
     if (containerCart) {
       containerCart.textContent = amountCart;
       }
     
-
     if (totalPrice) {
       totalPrice.textContent = cart.reduce((accumulator, product) => accumulator + product.quantity * product.price, 0); // The accumulator starts at zero
   }
@@ -241,13 +238,9 @@ const showCart = () => {
       localStorage.setItem('cart', JSON.stringify(cart));
   }
 
- 
-   
 function deleteProduct(id) {
-    // console.log(id);
     const gameId = id;
     cart = cart.filter((game) => game.id !== gameId);
-    // console.log(cart);
     showCart();
 }
 
@@ -279,8 +272,6 @@ function sendOrder(event) {
   // console.log('Sending...');
   const name = document.querySelector('#name').value;
    const email = document.querySelector('#email').value;
-  // console.log(client);
-  // console.log(mail);
 
   if (name === '' || email == '') {
     Swal.fire({
@@ -293,10 +284,6 @@ function sendOrder(event) {
   // console.log('You passed the validation');
 
   const btn = document.getElementById('button');
-
-  // document.getElementById('form')
-  // .addEventListener('submit', function(event) {
-  //   event.preventDefault();
 
     btn.value = 'Sending...';
 
@@ -317,7 +304,6 @@ function sendOrder(event) {
   spinner.classList.add('d-flex');
   spinner.classList.remove('d-none');
  
-
   setTimeout(() => {
     spinner.classList.remove('d-flex');
     spinner.classList.add('d-none');
@@ -328,7 +314,6 @@ function sendOrder(event) {
   successAlert.classList.add('alert', 'alert', 'd-block', 'text-center', 'col-md-12', 'mt-2', 'alert-success');
   successAlert.textContent = 'Successful purchase';
   form.appendChild(successAlert);
-
 
   setTimeout(() => {
     successAlert.remove();
