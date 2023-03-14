@@ -30,6 +30,59 @@ a {
     cursor: pointer;
 }
 
+.search-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.search-input {
+    background: black;
+    height: 40px;
+    border: 1px solid #fff;
+    border-radius: 4px;
+    outline: none;
+    font-size: 14px;
+    color: #fff;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin: 0 auto;
+    transition: .3s all;
+}
+
+.search-input:hover {
+    border-color: #b74e4e;
+    box-shadow: 0px 0px 10px #b74e4e;
+}
+
+.search-input::placeholder {
+    color: gray;
+    font-size: 16px;
+}
+
+.search-button {
+    height: 40px;
+    border: 1px solid #fff;
+    border-radius: 4px;
+    outline: none;
+    font-size: 14px;
+    color: #fff;
+    padding-left: 20px; 
+    padding-right: 20px;    
+    background: black;
+    transition: .3s all;
+}
+
+.search-button:hover {
+    border-color: #b74e4e;
+    box-shadow: 0px 0px 10px #b74e4e;
+    color: #b74e4e;
+    font-weight: bold;
+}
+
 .modal-container {
     color: #fff;
     background-color: black;
@@ -45,6 +98,18 @@ a {
 .img-cart {
     width: 200px;
     padding: 1rem;
+} 
+
+.card-img-top {
+    width: 175px;
+    height: 175px;
+    border: 1px solid gray;
+    border-radius: 4px;
+    transition: .3s;
+}
+
+.card-img-top:hover {
+    transform: scale(1.050);
 }
 
 .paragraph {
