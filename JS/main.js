@@ -273,20 +273,12 @@ function showProducts() {
 }
 
 const addProduct = (id) => {
-  // console.log(id);
-
-  const exist = cart.some(product => product.id === id);
-  if (exist) {
-      const prod = cart.map(prod => {
-          if(prod.id === id) {
-              prod.quantity++;
-          }
-      })
+  const productIndex = cart.findIndex(product => product.id === id);
+  if (productIndex !== -1) {
+    cart[productIndex].quantity++;
   } else {
-      const item = stockOfProducts.find((product) => product.id === id);
-      cart.push(item);
-      // console.log(cart);
-      // console.log(item);
+    const item = stockOfProducts.find(product => product.id === id);
+    cart.push({ ...item, quantity: 1 });
   }
   showCart();
 }
