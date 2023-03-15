@@ -247,24 +247,30 @@ processPurchase.addEventListener('click', () => {
     });
 }
 
-stockOfProducts.forEach((product) => {
-  const {id, name, quantity, description, price, img} = product;
-  // console.log(name);
-  if (container) {
-  container.innerHTML +=  `  
-  <div class="card mt-3" style="width: 18rem;">
-  <img class="card-img-top mt-2" src="${img}" alt="Card image cap">
-  <div class="card-body">
-    <h5 class="card-title">${name}</h5>
-    <p class="card-text">Price: ${price}</p>
-    <p class="card-text">${description}</p>
-    <p class="card-text">Quantity: ${quantity}</p>
-    <button onclick = "addProduct(${id})" class="btn btn-secondary btn-cart fw-bold">Add to cart</button>
-  </div>
-</div>
-  ` 
-  }
-});
+function showProducts() {
+  const startIndex = (currentPage - 1) * productsPerPage;
+  const endIndex = startIndex + productsPerPage;
+  const productsToShow = stockOfProducts.slice(startIndex, endIndex);
+
+  container.innerHTML = "";
+
+  productsToShow.forEach((product) => {
+    const { id, name, quantity, description, price, img } = product;
+
+    container.innerHTML += `
+      <div class="card mt-3" style="width: 18rem;">
+        <img class="card-img-top mt-2" src="${img}" alt="Card image...">
+        <div class="card-body">
+          <h5 class="card-title">${name}</h5>
+          <p class="card-text">${description}</p>
+          <p class = "card-text">Quantity: ${quantity}</p>
+          <p class="card-text">${price} USD</p>
+          <button class="btn btn-primary" onclick="addProduct(${id})">Add to cart</button>
+        </div>
+      </div>
+    `;
+  });
+}
 
 const addProduct = (id) => {
   // console.log(id);
@@ -435,7 +441,7 @@ if (searchButton) {
             <h5 class="card-title">${name}</h5>
             <p class="card-text">Price: ${price}</p>
             <p class="card-text">Description: ${description}</p>
-            <button type="button" class="btn btn-primary" onclick="addToCart(${id})">Add to cart</button>
+            <button type="button" class="btn btn-primary" onclick="addProduct(${id})">Add to cart</button>
           </div>
         </div>`;
     });
@@ -444,30 +450,6 @@ if (searchButton) {
 
 const productsPerPage = 8; // shows 8 products per page
 let currentPage = 1; // current page
-
-function showProducts() {
-  const startIndex = (currentPage - 1) * productsPerPage;
-  const endIndex = startIndex + productsPerPage;
-  const productsToShow = stockOfProducts.slice(startIndex, endIndex);
-
-  container.innerHTML = "";
-
-  productsToShow.forEach((product) => {
-    const { id, name, quantity, description, price, img } = product;
-
-    container.innerHTML += `
-      <div class="card mt-3" style="width: 18rem;">
-        <img class="card-img-top mt-2" src="${img}" alt="Card image...">
-        <div class="card-body">
-          <h5 class="card-title">${name}</h5>
-          <p class="card-text">${description}</p>
-          <p class="card-text">${price} USD</p>
-          <button class="btn btn-primary" onclick="addToCart(${id})">Add to cart</button>
-        </div>
-      </div>
-    `;
-  });
-}
 
 const container2 = document.querySelector('.container-2');
 
